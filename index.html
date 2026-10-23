@@ -29,7 +29,33 @@
                 src="https://images.unsplash.com/photo-1523398002811-999ca8dec234?auto=format&fit=crop&w=1600&q=85"
                 alt="Современная одежда и уличный стиль">
         </div>
-        <!-- О ПРОЕКТЕ -->
+        <!-- SCROLL STORY: вещь меняется вместе с прокруткой -->
+        <section class="story-scroll" id="story" aria-label="Как одежда получает вторую жизнь">
+            <div class="story-sticky">
+                <div class="story-copy">
+                    <span class="label">Одна вещь — новая история</span>
+                    <p class="story-kicker" id="story-kicker">01 / НАЧАЛО</p>
+                    <h2 id="story-title">У неё уже<br>есть история.</h2>
+                    <p id="story-description">Любимая вещь со временем теряет актуальность. Но это ещё не конец — это материал для новой идеи.</p>
+                    <div class="story-progress" aria-hidden="true"><span id="story-progress-fill"></span></div>
+                    <div class="story-count"><span id="story-count">01</span><span> / 03</span></div>
+                </div>
+                <div class="story-art" id="story-art" data-stage="0">
+                    <div class="story-orbit orbit-one"></div><div class="story-orbit orbit-two"></div>
+                    <span class="story-sticker sticker-top">RE:MAKE</span>
+                    <svg class="story-shirt" viewBox="0 0 420 430" role="img" aria-label="Иллюстрация футболки, которая преображается">
+                        <defs><linearGradient id="shirtShade" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fffdf7"/><stop offset="1" stop-color="#d8d5c9"/></linearGradient><filter id="shirtShadow" x="-30%" y="-30%" width="160%" height="170%"><feDropShadow dx="0" dy="18" stdDeviation="12" flood-color="#20201e" flood-opacity=".16"/></filter></defs>
+                        <path class="shirt-shape" d="M151 47 111 61 48 126 91 174 127 144 127 365 Q210 389 293 365 L293 144 329 174 372 126 309 61 269 47 Q253 91 210 91 167 91 151 47Z" fill="url(#shirtShade)" stroke="#20201e" stroke-width="3" stroke-linejoin="round" filter="url(#shirtShadow)"/>
+                        <path d="M167 48 Q175 77 210 77 Q245 77 253 48" fill="none" stroke="#b5b2a8" stroke-width="3"/>
+                        <g class="shirt-design"><rect x="155" y="174" width="110" height="100" rx="2" fill="#d8f36a" stroke="#20201e" stroke-width="2"/><text x="210" y="214" text-anchor="middle" font-size="19" font-weight="900" fill="#20201e">SECOND</text><text x="210" y="239" text-anchor="middle" font-size="19" font-weight="900" fill="#20201e">LIFE</text><path d="M174 252h72" stroke="#e84b2c" stroke-width="5"/></g>
+                        <g class="shirt-sparkles" fill="#e84b2c"><path d="M90 235l5 14 14 5-14 5-5 14-5-14-14-5 14-5z"/><path d="M330 95l4 11 11 4-11 4-4 11-4-11-11-4 11-4z"/><circle cx="319" cy="302" r="5"/><circle cx="108" cy="102" r="4"/></g>
+                    </svg>
+                    <span class="story-sticker sticker-bottom">ВТОРАЯ ЖИЗНЬ</span>
+                    <span class="story-scribble" aria-hidden="true">↗</span>
+                </div>
+            </div>
+        </section>
+                <!-- О ПРОЕКТЕ -->
         <section id="about">
             <div class="about">
                 <div>
