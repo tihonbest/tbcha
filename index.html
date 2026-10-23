@@ -1,473 +1,190 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ТБШ — одежда с историей</title>
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-        html {
-            scroll-behavior: smooth;
-        }
-        body {
-            font-family: Arial, sans-serif;
-            background: #f5f3ed;
-            color: #20201e;
-            line-height: 1.5;
-        }
-        /* ШАПКА */
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 22px 7%;
-            border-bottom: 1px solid #deddd5;
-        }
-        .logo {
-            font-size: 30px;
-            font-weight: 900;
-            letter-spacing: -2px;
-        }
-        nav a {
-            color: #20201e;
-            text-decoration: none;
-            margin-left: 25px;
-            font-size: 14px;
-        }
-        nav a:hover {
-            color: #e84b2c;
-        }
-        /* ГЛАВНЫЙ ЭКРАН */
-        .hero {
-            padding: 75px 7% 65px;
-        }
-        .label {
-            display: inline-block;
-            background: #d8f36a;
-            padding: 7px 13px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: bold;
-            text-transform: uppercase;
-        }
-        .hero h1 {
-            font-size: clamp(48px, 9vw, 105px);
-            line-height: 0.95;
-            letter-spacing: -5px;
-            margin: 28px 0;
-            max-width: 1000px;
-        }
-        .hero h1 span {
-            color: #e84b2c;
-        }
-        .hero-bottom {
-            display: flex;
-            justify-content: space-between;
-            align-items: end;
-            gap: 30px;
-            margin-top: 35px;
-        }
-        .hero-bottom p {
-            max-width: 420px;
-            color: #64645e;
-        }
-        .button {
-            display: inline-block;
-            background: #20201e;
-            color: white;
-            padding: 15px 24px;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-            transition: 0.2s;
-        }
-        .button:hover {
-            background: #e84b2c;
-            transform: translateY(-2px);
-        }
-        /* БОЛЬШАЯ ФОТОГРАФИЯ */
-        .hero-image {
-            margin: 0 7%;
-            height: 420px;
-            overflow: hidden;
-            border-radius: 12px;
-            background: #dedbd0;
-        }
-        .hero-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-        /* О ПРОЕКТЕ */
-        section {
-            padding: 85px 7%;
-        }
-        .section-title {
-            font-size: 42px;
-            letter-spacing: -2px;
-            margin-bottom: 35px;
-        }
-        .about {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-            align-items: center;
-        }
-        .about-text {
-            font-size: 19px;
-            color: #64645e;
-        }
-        .about-text strong {
-            color: #20201e;
-        }
-        .about-image {
-            height: 360px;
-            border-radius: 10px;
-            overflow: hidden;
-            background: #dedbd0;
-        }
-        .about-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        /* КАК МЫ РАБОТАЕМ */
-        .process {
-            background: #20201e;
-            color: white;
-        }
-        .process .section-title {
-            margin-bottom: 40px;
-        }
-        .steps {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-        }
-        .step {
-            border-top: 1px solid #555550;
-            padding-top: 20px;
-        }
-        .step-number {
-            color: #d8f36a;
-            font-size: 14px;
-        }
-        .step h3 {
-            font-size: 23px;
-            margin: 20px 0 10px;
-        }
-        .step p {
-            color: #b5b5ac;
-            font-size: 15px;
-        }
-        /* НАШИ РАБОТЫ */
-        .works-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: end;
-            gap: 20px;
-            margin-bottom: 35px;
-        }
-        .works-header p {
-            max-width: 300px;
-            color: #64645e;
-        }
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-        }
-        .work-card {
-            min-width: 0;
-        }
-        .work-image {
-            height: 300px;
-            border-radius: 9px;
-            overflow: hidden;
-            background: #dedbd0;
-        }
-        .work-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.4s;
-        }
-        .work-card:hover img {
-            transform: scale(1.05);
-        }
-        .work-card h3 {
-            margin-top: 15px;
-            font-size: 19px;
-        }
-        .work-card p {
-            color: #77776f;
-            font-size: 14px;
-        }
-        /* ПРИЗЫВ */
-        .join {
-            padding: 80px 7%;
-            background: #d8f36a;
-            text-align: center;
-        }
-        .join h2 {
-            font-size: clamp(35px, 6vw, 65px);
-            line-height: 1;
-            letter-spacing: -3px;
-            margin-bottom: 20px;
-        }
-        .join p {
-            margin-bottom: 25px;
-        }
-        .join .button {
-            background: #20201e;
-        }
-        /* ПОДВАЛ */
-        footer {
-            padding: 30px 7%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 20px;
-        }
-        footer p {
-            color: #77776f;
-            font-size: 13px;
-        }
-        /* МОБИЛЬНАЯ ВЕРСИЯ */
-        @media (max-width: 700px) {
-            header {
-                padding: 18px 5%;
-                align-items: flex-start;
-            }
-            .logo {
-                font-size: 26px;
-            }
-            nav a {
-                margin-left: 12px;
-                font-size: 12px;
-            }
-            .hero {
-                padding: 55px 5% 40px;
-            }
-            .hero h1 {
-                letter-spacing: -3px;
-            }
-            .hero-bottom {
-                align-items: flex-start;
-                flex-direction: column;
-            }
-            .hero-image {
-                margin: 0 5%;
-                height: 280px;
-            }
-            section {
-                padding: 60px 5%;
-            }
-            .section-title {
-                font-size: 34px;
-            }
-            .about {
-                grid-template-columns: 1fr;
-                gap: 25px;
-            }
-            .about-image {
-                height: 300px;
-            }
-            .steps {
-                grid-template-columns: 1fr;
-                gap: 35px;
-            }
-            .works-header {
-                align-items: flex-start;
-                flex-direction: column;
-            }
-            .gallery {
-                grid-template-columns: 1fr;
-                gap: 30px;
-            }
-            .work-image {
-                height: 350px;
-            }
-            footer {
-                align-items: flex-start;
-                flex-direction: column;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#f5f4ed">
+<title>ТБШ — Вторая жизнь вещей</title>
+<style>
+:root{--bg:#f5f4ed;--ink:#171717;--muted:#66665f;--line:#d8d7cf;--lime:#d8ff48;--orange:#f18b48;--panel:#e9e8df}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Arial,Helvetica,sans-serif}
+a{color:inherit;text-decoration:none}
+button,input{font:inherit}
+.wrap{width:min(1080px,calc(100% - 36px));margin:auto}
+nav{height:68px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);gap:16px}
+.logo{font-weight:1000;font-size:20px;letter-spacing:2px}
+.logo span{color:#8ba819}
+.navlinks{display:flex;gap:20px;flex-wrap:wrap;font-size:12px;font-weight:800}
+.navlinks a:hover{color:#77920e}
+.eyebrow{font-size:11px;font-weight:900;letter-spacing:2px;text-transform:uppercase}
+.hero{padding:48px 0 26px}
+h1{font-size:clamp(54px,10vw,108px);line-height:.83;letter-spacing:-.075em;font-weight:1000;margin:22px 0}
+h1 span{color:#91ad20}
+.lead{font-size:16px;line-height:1.65;color:var(--muted);max-width:510px}
+.btn{display:inline-flex;align-items:center;justify-content:center;border:1px solid var(--ink);padding:13px 16px;font-size:11px;font-weight:900;letter-spacing:.5px;margin:12px 0 24px;transition:background .2s,color .2s}
+.btn:hover{background:var(--ink);color:white}
+.heroart{min-height:350px;background:var(--panel);display:grid;place-items:center;position:relative;overflow:hidden}
+.heroart svg{width:min(84%,390px);filter:drop-shadow(0 20px 10px #0002);transform:rotate(-5deg)}
+.stamp{position:absolute;right:18px;top:18px;border:1px solid var(--ink);border-radius:50%;width:82px;height:82px;display:grid;place-items:center;text-align:center;font-size:10px;font-weight:900;line-height:1.4;transform:rotate(9deg)}
+.artcaption{position:absolute;left:18px;bottom:15px;font-size:10px;font-weight:900;letter-spacing:2px}
+.ticker{overflow:hidden;white-space:nowrap;padding:17px 0;border-bottom:1px solid var(--line);font-weight:1000;font-size:12px;letter-spacing:2px}
+.ticker span{color:#91ad20;margin:0 13px}
+section{padding:54px 0}
+.sectionhead{display:flex;justify-content:space-between;align-items:end;gap:15px;margin-bottom:20px}
+h2{font-size:clamp(36px,7vw,66px);line-height:.88;letter-spacing:-.07em;font-weight:1000;margin:12px 0 0}
+.tag{border:1px solid var(--line);padding:8px 10px;font-size:10px;font-weight:900;white-space:nowrap}
+.muted{color:var(--muted);line-height:1.65}
+.storyscroll{height:230vh;position:relative}
+.storypanel{position:sticky;top:8px;height:min(680px,86vh);min-height:460px;background:var(--panel);overflow:hidden;padding:17px;display:flex;flex-direction:column;justify-content:space-between}
+.storytop,.storybottom{display:flex;justify-content:space-between;align-items:center;gap:10px;position:relative;z-index:2;font-size:10px;font-weight:900;letter-spacing:1px}
+.storyshirt{position:absolute;left:50%;top:44%;width:min(76%,350px);transform:translate(-50%,-50%) rotate(-8deg) scale(.72);filter:drop-shadow(0 18px 10px #0002)}
+.storycopy{position:relative;z-index:2;max-width:280px;margin-top:auto;margin-bottom:36px}
+.storycopy h3{font-size:clamp(29px,6vw,48px);line-height:.91;letter-spacing:-.06em;margin:10px 0;font-weight:1000}
+.storycopy p{font-size:13px;line-height:1.55;color:#484840;max-width:245px}
+.progress{height:4px;background:#c8c7be;margin-top:14px}.progress i{display:block;height:100%;width:0;background:var(--ink)}
+.reset{border:1px solid var(--ink);background:transparent;padding:10px 12px;font-size:10px;font-weight:900;cursor:pointer}
+.workgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.work{min-width:0}
+.workvisual{aspect-ratio:4/5;background:var(--panel);display:grid;place-items:center;overflow:hidden}
+.workvisual.orange{background:#f1c5a6}
+.workvisual svg{width:100%;height:100%}
+.work h3{font-size:14px;margin:12px 0 5px;font-weight:900}
+.work p{font-size:12px;color:var(--muted);line-height:1.5;margin:0}
+.note{font-size:11px;color:var(--muted);line-height:1.5;margin-top:15px}
+.compare{background:var(--panel);padding:16px}
+.comparelabels{display:flex;justify-content:space-between;font-size:10px;font-weight:900;letter-spacing:1.5px}
+.comparison{position:relative;aspect-ratio:4/3;overflow:hidden;background:#d7d6cc;margin:10px 0 18px}
+.comparison svg{position:absolute;inset:0;width:100%;height:100%}
+.afterclip{position:absolute;inset:0;clip-path:inset(0 50% 0 0)}
+.range{width:100%;accent-color:var(--ink);margin:13px 0 7px}
+.about{border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.aboutgrid{display:grid;grid-template-columns:1fr 1fr;gap:25px;margin-top:20px}
+.aboutgrid p{margin-top:0}
+.news{display:grid;grid-template-columns:95px 1fr;gap:14px;padding:17px 0;border-top:1px solid var(--line)}
+.newsnum{font-size:10px;font-weight:900;color:var(--muted)}
+.news h3{font-size:17px;margin:0 0 6px}
+.news p{font-size:12px;color:var(--muted);line-height:1.6;margin:0}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s ease}
+.reveal.visible{opacity:1;transform:none}
+footer{border-top:1px solid var(--line);padding:24px 0 34px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:10px;font-weight:800;color:var(--muted);letter-spacing:.5px}
+@media(max-width:600px){
+ .wrap{width:calc(100% - 28px)} nav{height:auto;min-height:64px;align-items:flex-start;padding:17px 0;flex-direction:column}.navlinks{gap:13px}
+ .hero{padding-top:36px}.heroart{min-height:290px}.stamp{width:68px;height:68px;font-size:9px;right:10px;top:10px}
+ section{padding:42px 0}.sectionhead{align-items:flex-start}.tag{margin-top:5px}
+ .storypanel{min-height:440px;padding:13px}.storyshirt{width:min(83%,320px);top:39%}.storycopy{max-width:230px;margin-bottom:33px}.storycopy p{max-width:210px}
+ .workgrid{gap:10px}.work h3{font-size:12px}.aboutgrid{grid-template-columns:1fr;gap:4px}.news{grid-template-columns:70px 1fr}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal{opacity:1;transform:none;transition:none}*{animation:none!important;transition:none!important}}
+</style>
 </head>
 <body>
-    <!-- ШАПКА -->
-    <header>
-        <div class="logo">ТБШ.</div>
-        <nav>
-            <a href="#about">О нас</a>
-            <a href="#works">Работы</a>
-            <a href="#join">Контакты</a>
-        </nav>
-    </header>
-    <!-- ГЛАВНЫЙ ЭКРАН -->
-    <main>
-        <div class="hero">
-            <span class="label">Меньше отходов — больше стиля</span>
-            <h1>
-                СТАРОЕ.<br>
-                НО <span>НОВОЕ.</span>
-            </h1>
-            <div class="hero-bottom">
-                <p>
-                    Мы даём старой одежде вторую жизнь.
-                    Кастомизируем вещи, экспериментируем
-                    с дизайном и создаём собственный мерч.
-                </p>
-                <a href="#about" class="button">
-                    Знакомство с проектом ↘
-                </a>
-            </div>
-        </div>
-        <!-- ГЛАВНАЯ ФОТОГРАФИЯ -->
-        <div class="hero-image">
-            <img
-                src="https://images.unsplash.com/photo-1523398002811-999ca8dec234?auto=format&fit=crop&w=1600&q=85"
-                alt="Современная одежда и уличный стиль">
-        </div>
-        <!-- О ПРОЕКТЕ -->
-        <section id="about">
-            <div class="about">
-                <div>
-                    <span class="label">Наша идея</span>
-                    <h2 class="section-title" style="margin-top: 20px;">
-                        У каждой вещи есть история.
-                    </h2>
-                    <div class="about-text">
-                        <p>
-                            Необязательно выбрасывать старую футболку,
-                            если она тебе надоела.
-                        </p>
-                        <br>
-                        <p>
-                            <strong>ТБШ</strong> — школьный проект,
-                            в котором мы превращаем ненужную одежду
-                            в интересные вещи с собственным характером.
-                        </p>
-                        <br>
-                        <p>
-                            Немного творчества, новые идеи —
-                            и обычная вещь получает вторую жизнь.
-                        </p>
-                    </div>
-                </div>
-                <div class="about-image">
-                    <img
-                        src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=900&q=85"
-                        alt="Одежда и материалы для творчества">
-                </div>
-            </div>
-        </section>
-        <!-- ЭТАПЫ РАБОТЫ -->
-        <section class="process">
-            <span class="label">От идеи до результата</span>
-            <h2 class="section-title" style="margin-top: 25px;">
-                Как это работает?
-            </h2>
-            <div class="steps">
-                <div class="step">
-                    <span class="step-number">01 / НАХОДИМ</span>
-                    <h3>Старая одежда</h3>
-                    <p>
-                        Собираем вещи, которые больше не носят,
-                        но которые ещё можно использовать.
-                    </p>
-                </div>
-                <div class="step">
-                    <span class="step-number">02 / ПРИДУМЫВАЕМ</span>
-                    <h3>Новый дизайн</h3>
-                    <p>
-                        Выбираем идеи, экспериментируем
-                        с рисунками, тканями и деталями.
-                    </p>
-                </div>
-                <div class="step">
-                    <span class="step-number">03 / СОЗДАЁМ</span>
-                    <h3>Новую вещь</h3>
-                    <p>
-                        Превращаем обычную одежду в уникальный
-                        предмет гардероба или мерч проекта.
-                    </p>
-                </div>
-            </div>
-        </section>
-        <!-- ГАЛЕРЕЯ -->
-        <section id="works">
-            <div class="works-header">
-                <div>
-                    <span class="label">Творческая мастерская</span>
-                    <h2 class="section-title" style="margin-top: 20px;">
-                        Идеи и стиль.
-                    </h2>
-                </div>
-                <p>
-                    Здесь будут наши реальные работы,
-                    эксперименты и готовые изделия.
-                </p>
-            </div>
-            <div class="gallery">
-                <article class="work-card">
-                    <div class="work-image">
-                        <img
-                            src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=700&q=85"
-                            alt="Футболка для кастомизации">
-                    </div>
-                    <h3>01. Новая футболка</h3>
-                    <p>Из обычной вещи — в собственный дизайн.</p>
-                </article>
-                <article class="work-card">
-                    <div class="work-image">
-                        <img
-                            src="https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?auto=format&fit=crop&w=700&q=85"
-                            alt="Уличная одежда">
-                    </div>
-                    <h3>02. Streetwear</h3>
-                    <p>Вдохновение уличной культурой.</p>
-                </article>
-                <article class="work-card">
-                    <div class="work-image">
-                        <img
-                            src="https://images.unsplash.com/photo-1434389677669-e08b4cac3105?auto=format&fit=crop&w=700&q=85"
-                            alt="Одежда и текстиль">
-                    </div>
-                    <h3>03. Вторая жизнь</h3>
-                    <p>Меньше лишних вещей, больше идей.</p>
-                </article>
-            </div>
-        </section>
-        <!-- ПРИЗЫВ К УЧАСТИЮ -->
-        <section class="join" id="join">
-            <h2>
-                НЕ ВЫБРАСЫВАЙ.<br>
-                ПЕРЕДЕЛАЙ.
-            </h2>
-            <p>
-                Одежда может получить вторую жизнь.
-                А ты можешь стать частью этой истории.
-            </p>
-            <a
-                href="mailto:example@example.com"
-                class="button"
-                onclick="alert('Здесь позже добавим настоящие контакты проекта!'); return false;">
-                Связаться с нами ↗
-            </a>
-        </section>
-    </main>
-    <!-- ПОДВАЛ -->
-    <footer>
-        <div class="logo">ТБШ.</div>
-        <p>Школьный проект · Вторая жизнь одежды</p>
-        <p>© 2026 ТБШ</p>
-    </footer>
+<div class="wrap">
+<nav><a class="logo" href="#">ТБШ<span>®</span></a><div class="navlinks"><a href="#about">О проекте</a><a href="#works">Работы</a><a href="#news">Новости</a></div></nav>
+<header class="hero">
+ <span class="eyebrow">Second life studio / 2026</span>
+ <h1>СТАРОЕ.<br>НОВОЕ.<br><span>НАШЕ.</span></h1>
+ <p class="lead">Даём одежде вторую жизнь. Кастомизируем вещи, экспериментируем со стилем и создаём собственный мерч.</p>
+ <a class="btn" href="#works">СМОТРЕТЬ РАБОТЫ ↘</a>
+ <div class="heroart">
+  <span class="stamp">REUSE<br>REMAKE<br>REPEAT</span>
+  <svg viewBox="0 0 360 340" role="img" aria-label="Кастомизированная футболка">
+   <path d="M123 46 L82 62 L30 125 L77 165 L108 128 L108 292 Q180 310 252 292 L252 128 L283 165 L330 125 L278 62 L237 46 Q220 78 180 78 Q140 78 123 46Z" fill="#f6f4eb" stroke="#171717" stroke-width="3"/>
+   <path d="M123 46 Q139 90 180 90 Q221 90 237 46" fill="none" stroke="#aaa99f" stroke-width="3"/>
+   <path d="M134 146 L226 146 L226 222 L134 222Z" fill="#d8ff48" stroke="#171717" stroke-width="2"/>
+   <text x="180" y="177" text-anchor="middle" font-size="24" font-weight="1000">SECOND</text><text x="180" y="204" text-anchor="middle" font-size="24" font-weight="1000">LIFE®</text>
+   <path d="M145 239 L215 239" stroke="#171717" stroke-width="4"/><circle cx="180" cy="257" r="8" fill="#f18b48" stroke="#171717" stroke-width="2"/>
+  </svg>
+  <span class="artcaption">ОДНА ВЕЩЬ — НОВАЯ ИСТОРИЯ</span>
+ </div>
+</header>
+<div class="ticker">♻ REUSE <span>✳</span> REMAKE <span>↗</span> REPEAT <span>♻</span> REUSE <span>✳</span> REMAKE</div>
+
+<section id="story">
+ <div class="sectionhead"><div><span class="eyebrow">01 / Scroll experience</span><h2>ВТОРАЯ<br>ЖИЗНЬ ВЕЩИ.</h2></div><span class="tag">ПРОКРУТИ ↓</span></div>
+ <div class="storyscroll" id="storyscroll">
+  <div class="storypanel">
+   <div class="storytop"><span>ТБШ® / ПРОЦЕСС</span><span id="storycount">01 — 03</span></div>
+   <svg class="storyshirt" id="storyshirt" viewBox="0 0 360 340" aria-label="Футболка меняется при прокрутке">
+    <path id="shirtbody" d="M123 46 L82 62 L30 125 L77 165 L108 128 L108 292 Q180 310 252 292 L252 128 L283 165 L330 125 L278 62 L237 46 Q220 78 180 78 Q140 78 123 46Z" fill="#b9b9b0" stroke="#77776f" stroke-width="3"/>
+    <path d="M123 46 Q139 90 180 90 Q221 90 237 46" fill="none" stroke="#8d8d84" stroke-width="3"/>
+    <g id="shirtprint" opacity="0"><path d="M134 146 L226 146 L226 222 L134 222Z" fill="#d8ff48" stroke="#171717" stroke-width="2"/><text x="180" y="177" text-anchor="middle" font-size="24" font-weight="1000">SECOND</text><text x="180" y="204" text-anchor="middle" font-size="24" font-weight="1000">LIFE®</text><path d="M145 239 L215 239" stroke="#171717" stroke-width="4"/></g>
+   </svg>
+   <div class="storycopy"><span class="eyebrow" id="storystep">ЭТАП 01 / НАЧАЛО</span><h3 id="storytitle">Всё начинается с простой вещи.</h3><p id="storydesc">Обычная футболка, которую можно было бы забыть в шкафу.</p><div class="progress"><i id="storyprogress"></i></div></div>
+   <div class="storybottom"><span id="storybottom">СЫРЬЁ → ИДЕЯ → МЕРЧ</span><button class="reset" id="storyreset" type="button">↻ СНАЧАЛА</button></div>
+  </div>
+ </div>
+</section>
+
+<section id="works">
+ <div class="sectionhead"><div><span class="eyebrow">02 / Наши работы</span><h2>СДЕЛАНО<br>С ХАРАКТЕРОМ.</h2></div><span class="tag">ГАЛЕРЕЯ</span></div>
+ <p class="muted">Здесь будут реальные вещи, которые мы спасли от скуки.</p>
+ <div class="workgrid">
+  <article class="work reveal"><div class="workvisual"><svg viewBox="0 0 220 260" role="img" aria-label="Иллюстрация футболки с принтом"><path d="M76 31 L51 41 L18 83 L46 106 L65 83 L65 225 Q110 237 155 225 L155 83 L174 106 L202 83 L169 41 L144 31 Q132 53 110 53 Q88 53 76 31Z" fill="#f7f5ec" stroke="#171717" stroke-width="2.5"/><path d="M82 100 L138 100 L138 148 L82 148Z" fill="#d8ff48" stroke="#171717" stroke-width="2"/><text x="110" y="120" text-anchor="middle" font-size="11" font-weight="1000">SECOND</text><text x="110" y="136" text-anchor="middle" font-size="11" font-weight="1000">LIFE</text></svg></div><h3>01 / SECOND LIFE TEE</h3><p>Пример будущей кастомизации</p></article>
+  <article class="work reveal"><div class="workvisual orange"><svg viewBox="0 0 220 260" role="img" aria-label="Иллюстрация тёмной футболки с нашивкой"><path d="M75 33 L47 43 L16 82 L46 109 L64 86 L69 224 Q110 235 151 224 L156 86 L174 109 L204 82 L173 43 L145 33 Q132 53 110 53 Q88 53 75 33Z" fill="#242424" stroke="#171717" stroke-width="2.5"/><path d="M86 112 L134 112 L134 158 L86 158Z" fill="#f18b48" stroke="#f8f5eb" stroke-width="2"/><text x="110" y="132" text-anchor="middle" font-size="10" font-weight="1000">ТБШ</text><path d="M94 143 L126 143" stroke="#171717" stroke-width="3"/></svg></div><h3>02 / REMADE CREW</h3><p>Пример новой жизни старой вещи</p></article>
+ </div>
+ <p class="note">Иллюстрации временные — позже заменим их фотографиями команды.</p>
+</section>
+
+<section id="compare">
+ <div class="sectionhead"><div><span class="eyebrow">03 / Before & after</span><h2>НАЙДИ<br>РАЗНИЦУ.</h2></div></div>
+ <div class="compare"><div class="comparelabels"><span>ДО</span><span>ПОСЛЕ</span></div>
+  <div class="comparison">
+   <svg viewBox="0 0 400 300" role="img" aria-label="Футболка до кастомизации"><rect width="400" height="300" fill="#d7d6cc"/><path d="M142 39 L106 51 L61 104 L99 133 L124 102 L124 255 Q200 269 276 255 L276 102 L301 133 L339 104 L294 51 L258 39 Q242 70 200 70 Q158 70 142 39Z" fill="#b8b8b0" stroke="#77776f" stroke-width="3"/></svg>
+   <div class="afterclip" id="afterclip"><svg viewBox="0 0 400 300" role="img" aria-label="Футболка после кастомизации"><rect width="400" height="300" fill="#d7d6cc"/><path d="M142 39 L106 51 L61 104 L99 133 L124 102 L124 255 Q200 269 276 255 L276 102 L301 133 L339 104 L294 51 L258 39 Q242 70 200 70 Q158 70 142 39Z" fill="#f7f5ec" stroke="#171717" stroke-width="3"/><path d="M157 120 L243 120 L243 184 L157 184Z" fill="#d8ff48" stroke="#171717" stroke-width="2"/><text x="200" y="147" text-anchor="middle" font-size="20" font-weight="1000">SECOND</text><text x="200" y="169" text-anchor="middle" font-size="20" font-weight="1000">LIFE®</text><path d="M168 197 L232 197" stroke="#171717" stroke-width="4"/></svg></div>
+  </div>
+  <label for="compareRange" class="eyebrow">ПЕРЕМЕЩАЙ ПОЛЗУНОК</label><input class="range" id="compareRange" type="range" min="0" max="100" value="50" aria-label="Сравнить до и после"><div class="comparelabels"><span>БЫЛО</span><span>СТАЛО</span></div>
+ </div>
+</section>
+
+<section id="about" class="about"><span class="eyebrow">04 / О проекте</span><div class="aboutgrid"><div><h2>НЕ ВЫБРАСЫВАТЬ.<br>ПЕРЕДЕЛЫВАТЬ.</h2></div><div><p class="muted">ТБШ — школьный проект о том, как дать старой одежде вторую жизнь. Мы кастомизируем вещи, ищем свой стиль и создаём собственный мерч.</p><p class="muted">Наша идея проста: меньше лишнего — больше творчества.</p></div></div></section>
+
+<section id="news"><div class="sectionhead"><div><span class="eyebrow">05 / Из жизни проекта</span><h2>СВЕЖИЕ<br>НОВОСТИ.</h2></div><span class="tag">ЛЕНТА</span></div>
+ <article class="news reveal"><div class="newsnum">NEWS / 001</div><div><h3>Начинаем новую историю</h3><p>Здесь появятся новости о ходе проекта, новых работах и событиях команды.</p><p class="note">ДЕМО-ПУБЛИКАЦИЯ</p></div></article>
+ <article class="news reveal"><div class="newsnum">NEWS / 002</div><div><h3>Скоро — первые работы</h3><p>Добавим фотографии процесса и покажем, как меняются вещи.</p><p class="note">ДЕМО-ПУБЛИКАЦИЯ</p></div></article>
+</section>
+<footer><span>ТБШ® / SECOND LIFE STUDIO</span><span>СДЕЛАНО С ИДЕЕЙ ♻</span><span>ЧЕРНОВИК 0.2</span></footer>
+</div>
+<script>
+(() => {
+ const scene=document.getElementById('storyscroll');
+ const shirt=document.getElementById('storyshirt');
+ const body=document.getElementById('shirtbody');
+ const print=document.getElementById('shirtprint');
+ const clamp=(n,a,b)=>Math.max(a,Math.min(b,n));
+ let pending=false;
+ function updateStory(){
+  const rect=scene.getBoundingClientRect();
+  const travel=Math.max(1,scene.offsetHeight-scene.querySelector('.storypanel').offsetHeight);
+  const p=clamp(-rect.top/travel,0,1), eased=p*p*(3-2*p);
+  shirt.style.transform=`translate(-50%,-50%) translateY(${24-40*eased}px) rotate(${-8+8*eased}deg) scale(${.72+.28*eased})`;
+  body.setAttribute('fill',p<.4?'#b9b9b0':p<.7?'#d5d5ca':'#f7f5ec');
+  body.setAttribute('stroke',p<.4?'#77776f':'#171717');
+  print.style.opacity=String(clamp((p-.28)*5,0,1));
+  document.getElementById('storyprogress').style.width=(p*100)+'%';
+  let step,title,desc,bottom;
+  if(p<.34){step='ЭТАП 01 / НАЧАЛО';title='Всё начинается с простой вещи.';desc='Обычная футболка, которую можно было бы забыть в шкафу.';bottom='СЫРЬЁ → ИДЕЯ → МЕРЧ';document.getElementById('storycount').textContent='01 — 03';}
+  else if(p<.7){step='ЭТАП 02 / КАСТОМИЗАЦИЯ';title='Добавляем характер.';desc='Выбираем идею, подбираем детали и создаём новый образ.';bottom='ИДЕЯ СТАНОВИТСЯ СТИЛЕМ';document.getElementById('storycount').textContent='02 — 03';}
+  else{step='ЭТАП 03 / НОВАЯ ЖИЗНЬ';title='Та же вещь. Новая история.';desc='Вместо выброшенной одежды — вещь, которую хочется носить.';bottom='ТБШ® / REMADE';document.getElementById('storycount').textContent='03 — 03';}
+  document.getElementById('storystep').textContent=step;
+  document.getElementById('storytitle').textContent=title;
+  document.getElementById('storydesc').textContent=desc;
+  document.getElementById('storybottom').textContent=bottom;
+ }
+ function onScroll(){if(!pending){pending=true;requestAnimationFrame(()=>{updateStory();pending=false;});}}
+ window.addEventListener('scroll',onScroll,{passive:true});
+ window.addEventListener('resize',onScroll);
+ document.getElementById('storyreset').addEventListener('click',()=>scene.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'}));
+ const range=document.getElementById('compareRange'),clip=document.getElementById('afterclip');
+ function updateCompare(){clip.style.clipPath=`inset(0 ${100-Number(range.value)}% 0 0)`;}
+ range.addEventListener('input',updateCompare);updateCompare();
+ if('IntersectionObserver' in window){
+  const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target);}}),{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+ }else document.querySelectorAll('.reveal').forEach(el=>el.classList.add('visible'));
+ updateStory();
+})();
+</script>
 </body>
 </html>
