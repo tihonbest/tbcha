@@ -575,3 +575,79 @@ header.site-header { position: sticky; top: 0; z-index: 20; background: rgba(245
     padding: 6px 8px;
   }
 }
+/* Сравнение джинсов до и после */
+.before-after {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: 12px;
+  background: #dedbd0;
+}
+
+.before-after > .ba-before-image,
+.before-after .ba-after-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.ba-after {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  clip-path: inset(0 50% 0 0);
+}
+
+.ba-divider {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 3px;
+  background: #f5f3ed;
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+.ba-divider::after {
+  content: "↔";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: #d8f36a;
+  color: #171717;
+  font-size: 22px;
+  font-weight: 800;
+  transform: translate(-50%, -50%);
+}
+
+.ba-range {
+  display: block;
+  width: 100%;
+  margin: 20px 0 8px;
+  accent-color: #e84b2c;
+  cursor: ew-resize;
+}
+
+.ba-labels {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 12px;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+@media (max-width: 600px) {
+  .before-after {
+    aspect-ratio: 3 / 4;
+  }
+}
