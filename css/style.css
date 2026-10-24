@@ -493,3 +493,85 @@ header.site-header { position: sticky; top: 0; z-index: 20; background: rgba(245
     line-height: 1.25;
   }
 }
+/* Фирменное название и блок маскота для «Вещь с историей» */
+.site-header .logo {
+  max-width: 210px;
+  font-size: clamp(14px, 1.35vw, 18px);
+  line-height: 1.05;
+  letter-spacing: -0.5px;
+  text-transform: uppercase;
+}
+.site-header .logo a {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+.site-footer .logo {
+  max-width: 250px;
+  font-size: 18px;
+  line-height: 1.1;
+  letter-spacing: -0.5px;
+  text-transform: uppercase;
+}
+.mascot-feature {
+  margin: 42px 7%;
+  padding: clamp(20px, 4vw, 42px);
+  border-radius: 14px;
+  background: #d8f36a;
+  display: grid;
+  grid-template-columns: minmax(110px, 170px) minmax(0, 1fr);
+  gap: clamp(18px, 4vw, 42px);
+  align-items: center;
+}
+.mascot-art {
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: #f5f3ed;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+.mascot-art img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.mascot-copy h2 {
+  margin: 16px 0 10px;
+  max-width: 700px;
+  font-size: clamp(28px, 4vw, 48px);
+  line-height: 1;
+  letter-spacing: -0.05em;
+}
+.mascot-copy p {
+  max-width: 620px;
+  color: #46463f;
+}
+.about-image img, .work-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+@media (max-width: 700px) {
+  .site-header .logo {
+    max-width: none;
+    font-size: 16px;
+  }
+  .mascot-feature {
+    margin: 28px 5%;
+    padding: 18px;
+    grid-template-columns: 84px minmax(0, 1fr);
+    gap: 16px;
+  }
+  .mascot-copy h2 {
+    margin-top: 12px;
+    font-size: clamp(23px, 6vw, 30px);
+  }
+  .mascot-copy .label {
+    font-size: 9px;
+    padding: 6px 8px;
+  }
+}
