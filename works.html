@@ -1,9 +1,137 @@
 <!doctype html>
-<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f5f3ed"><title>До / После — Вещь с историей</title><link rel="stylesheet" href="css/style.css"></head>
-<body><div class="scroll-progress" aria-hidden="true"></div><header class="site-header"><div class="logo"><a href="index.html" aria-label="Вещь с историей — главная">ВЕЩЬ С ИСТОРИЕЙ</a></div><nav class="navlinks" aria-label="Главная навигация">
-<a href="about.html">О проекте</a><a href="works.html">До / После</a><a href="merch.html">Мерч</a><a href="teachers.html">Учителя</a><a href="news.html">Новости</a><a href="contacts.html">Контакты</a>
-</nav></header><main><div class="page-intro"><span class="label">Творческая мастерская</span><h1>ДО ЭТОГО.<br><span style="color:#e84b2c">ПОСЛЕ.</span></h1><p>Перемещай ползунок, чтобы увидеть, как новая идея меняет привычную вещь.</p></div>
-<section><div class="works-header"><h2 class="section-title">Одна вещь. Два состояния.</h2><p>Потяни ползунок влево или вправо.</p></div><div class="before-after">
-<svg viewBox="0 0 600 450" role="img" aria-label="Футболка до кастомизации"><rect width="600" height="450" fill="#dedbd0"/><path d="M220 60 L160 80 L80 170 L145 220 L190 175 L190 380 Q300 405 410 380 L410 175 L455 220 L520 170 L440 80 L380 60 Q350 115 300 115 Q250 115 220 60Z" fill="#aaa99f" stroke="#77776f" stroke-width="4"/></svg>
-<div class="ba-after" id="ba-after"><svg viewBox="0 0 600 450" role="img" aria-label="Футболка после кастомизации"><rect width="600" height="450" fill="#dedbd0"/><path d="M220 60 L160 80 L80 170 L145 220 L190 175 L190 380 Q300 405 410 380 L410 175 L455 220 L520 170 L440 80 L380 60 Q350 115 300 115 Q250 115 220 60Z" fill="#f5f3ed" stroke="#20201e" stroke-width="4"/><path d="M235 190 L365 190 L365 285 L235 285Z" fill="#d8f36a" stroke="#20201e" stroke-width="3"/><text x="300" y="230" text-anchor="middle" font-size="27" font-weight="900" fill="#20201e">SECOND</text><text x="300" y="260" text-anchor="middle" font-size="27" font-weight="900" fill="#20201e">LIFE®</text><path d="M250 310 L350 310" stroke="#e84b2c" stroke-width="8"/></svg></div></div><div class="ba-labels"><span>ДО</span><span>ПОСЛЕ</span></div><input class="ba-range" id="ba-range" type="range" min="0" max="100" value="50" aria-label="Сравнение до и после"></section>
-<section><div class="works-header"><div><span class="label">Наши работы</span><h2 class="section-title" style="margin-top:20px">Галерея преображений.</h2></div><p>Каждая вещь может получить новый дизайн и собственную историю.</p></div><div class="page-grid stagger"><article class="page-card reveal"><div class="work-image"><img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&amp;fit=crop&amp;w=1000&amp;q=85" alt="Одежда до переделки" loading="lazy"></div><h3>01. До кастомизации</h3><p>Исходная вещь.</p></article><article class="page-card reveal"><div class="work-image"><img src="https://images.unsplash.com/photo-1551232864-3f0890e580d9?auto=format&amp;fit=crop&amp;w=1000&amp;q=85" alt="Одежда после обновления" loading="lazy"></div><h3>01. После кастомизации</h3><p>Новый дизайн и новая история.</p></article><article class="page-card reveal"><div class="work-image"><img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&amp;fit=crop&amp;w=1000&amp;q=85" alt="Футболка как материал для нового дизайна" loading="lazy"></div><h3>02. Следующая история</h3><p>Ещё одна вещь, готовая к новой истории.</p></article></div></section></main><footer class="site-footer"><div class="logo">ВЕЩЬ С ИСТОРИЕЙ</div><p>Вторая жизнь одежды · Творческая мастерская</p><p>© 2026 «Вещь с историей»</p></footer><script src="js/main.js"></script><script src="js/works.js"></script></body></html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#f5f3ed">
+  <title>До / После — Вещь с историей</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <div class="scroll-progress" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <div class="logo">
+      <a href="index.html">ВЕЩЬ С ИСТОРИЕЙ</a>
+    </div>
+    <nav class="navlinks" aria-label="Главная навигация">
+      <a href="about.html">О проекте</a>
+      <a href="works.html">До / После</a>
+      <a href="merch.html">Мерч</a>
+      <a href="teachers.html">Учителя</a>
+      <a href="news.html">Новости</a>
+      <a href="contacts.html">Контакты</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="page-intro">
+      <span class="label">Творческая мастерская</span>
+      <h1>ДО ЭТОГО.<br>
+        <span style="color:#e84b2c">ПОСЛЕ.</span>
+      </h1>
+      <p>Передвигая ползунок, посмотри, как вещь получает новую жизнь.</p>
+    </div>
+
+    <section>
+      <div class="works-header">
+        <h2 class="section-title">Одна вещь. Два состояния.</h2>
+        <p>Потяни ползунок влево или вправо.</p>
+      </div>
+
+      <div class="before-after">
+        <img
+          class="ba-before-image"
+          src="photo/jeans1.jpg"
+          alt="Джинсы до переделки"
+        >
+
+        <div class="ba-after" id="ba-after">
+          <img
+            class="ba-after-image"
+            src="photo/jeans2.jpg"
+            alt="Джинсы после переделки"
+          >
+        </div>
+
+        <div class="ba-divider" id="ba-divider" aria-hidden="true"></div>
+      </div>
+
+      <div class="ba-labels">
+        <span>ДО</span>
+        <span>ПОСЛЕ</span>
+      </div>
+
+      <input
+        class="ba-range"
+        id="ba-range"
+        type="range"
+        min="0"
+        max="100"
+        value="50"
+        aria-label="Сравнить джинсы до и после"
+      >
+    </section>
+
+    <section>
+      <div class="works-header">
+        <div>
+          <span class="label">Наши работы</span>
+          <h2 class="section-title" style="margin-top:20px">
+            Галерея преображений.
+          </h2>
+        </div>
+        <p>Каждая вещь может получить новый дизайн и собственную историю.</p>
+      </div>
+
+      <div class="page-grid stagger">
+        <article class="page-card">
+          <div class="work-image">
+            <img
+              src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=1000&q=85"
+              alt="Одежда до переделки"
+              loading="lazy"
+            >
+          </div>
+          <h3>01. До кастомизации</h3>
+          <p>Исходная вещь.</p>
+        </article>
+
+        <article class="page-card">
+          <div class="work-image">
+            <img
+              src="https://images.unsplash.com/photo-1551232864-3f0890e580d9?auto=format&fit=crop&w=1000&q=85"
+              alt="Одежда после обновления"
+              loading="lazy"
+            >
+          </div>
+          <h3>02. Новая история</h3>
+          <p>Новый дизайн и новый характер.</p>
+        </article>
+
+        <article class="page-card">
+          <div class="work-image">
+            <img
+              src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=1000&q=85"
+              alt="Одежда для творческой переделки"
+              loading="lazy"
+            >
+          </div>
+          <h3>03. Следующая идея</h3>
+          <p>Вещи заслуживают второго шанса.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="logo">ВЕЩЬ С ИСТОРИЕЙ</div>
+    <p>Вторая жизнь одежды · Творческая мастерская</p>
+    <p>© 2026 «Вещь с историей»</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/works.js"></script>
+</body>
+</html>
