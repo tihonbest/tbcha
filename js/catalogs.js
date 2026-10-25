@@ -56,11 +56,12 @@ async function renderNews() {
   const items = await getJSON("data/news.json");
   if (!items) return;
   root.replaceChildren();
-  const visibleItems = items.filter(item => !item.demo);
+  const visibleItems = items;
   if (!visibleItems.length) {
-    renderEmptyState(root, "Новости мастерской", "Новые идеи, работы и события проекта появятся здесь.");
-    return;
-  }
+  renderEmptyState(root, "Новости мастерской", "Новые идеи, работы и события проекта появятся здесь.");
+  return;
+}
+}
   visibleItems.forEach(item => {
     const row = element("article", "news-row reveal is-visible");
     row.append(element("div", "news-date", item.date || ""));
