@@ -744,3 +744,6 @@ section:not(.process):not(.join) { position:relative; }
 }
 .site-header,.hero,main,footer { position:relative; }
 @media(prefers-reduced-motion:reduce) { .pointer-glow { display:none; } }
+
+.pointer-glow { z-index:0; }
+.site-header, main, .site-footer { position:relative; z-index:1; }
