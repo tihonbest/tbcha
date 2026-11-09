@@ -93,3 +93,40 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+
+
+/* TBШ motion details: soft pointer light and accessible micro-interactions */
+(() => {
+  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (reduce) return;
+
+  // A subtle light follows the pointer on desktop; no extra work on touch screens.
+  if (window.matchMedia("(hover:hover) and (pointer:fine)").matches) {
+    let frame = 0;
+    window.addEventListener("pointermove", event => {
+      if (frame) return;
+      frame = requestAnimationFrame(() => {
+        document.documentElement.style.setProperty("--pointer-x", event.clientX + "px");
+        document.documentElement.style.setProperty("--pointer-y", event.clientY + "px");
+        frame = 0;
+      });
+    }, {passive:true});
+    const glow = document.createElement("div");
+    glow.className = "pointer-glow";
+    glow.setAttribute("aria-hidden","true");
+    document.body.appendChild(glow);
+  }
+
+  // Buttons get a restrained magnetic response, only on a mouse/trackpad.
+  if (window.matchMedia("(hover:hover) and (pointer:fine)").matches) {
+    document.querySelectorAll(".button").forEach(button => {
+      button.addEventListener("pointermove", event => {
+        const rect = button.getBoundingClientRect();
+        const dx = (event.clientX - rect.left - rect.width / 2) * .055;
+        const dy = (event.clientY - rect.top - rect.height / 2) * .08;
+        button.style.transform = `translate(${dx}px,${dy}px)`;
+      });
+      button.addEventListener("pointerleave", () => { button.style.transform = ""; });
+    });
+  }
+})();
