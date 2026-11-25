@@ -164,8 +164,8 @@ async function getMerchGroups() {
     else group.original = url;
   });
   return [...groups.values()]
-    .filter(group => group.original && group.views.length)
-    .map(group => ({ ...group, views: group.views.sort((a,b) => a.order - b.order).map(view => view.url) }))
+    .filter(group => group.views.length)
+    .map(group => ({ ...group, views: group.views.sort((a,b) => a.order - b.order).slice(0, 2).map(view => view.url) }))
     .sort((a,b) => a.id - b.id);
 }
 
@@ -175,7 +175,6 @@ function makeMerchCard(item) {
   const track = element("div", "merch-track");
   const image = element("img");
   let index = 0;
-  let showingOriginal = false;
   image.src = item.views[0];
   image.alt = "Обновлённая вещь № " + item.id;
   image.loading = "lazy";
@@ -192,7 +191,6 @@ function makeMerchCard(item) {
     dot.type = "button";
     dot.setAttribute("aria-label", "Показать ракурс " + (i + 1));
     dot.addEventListener("click", () => {
-      if (showingOriginal) return;
       index = i;
       image.src = item.views[index];
       count.textContent = String(index + 1).padStart(2,"0") + " / " + String(item.views.length).padStart(2,"0");
@@ -209,27 +207,12 @@ function makeMerchCard(item) {
     element("h3", "", "Вещь № " + item.id),
     element("p", "", "Обновлённая вещь. История продолжается.")
   );
-  const toggle = element("button", "merch-original", "Показать оригинал");
-  toggle.type = "button";
-  toggle.setAttribute("aria-pressed", "false");
-  toggle.addEventListener("click", () => {
-    showingOriginal = !showingOriginal;
-    image.classList.add("is-changing");
-    window.setTimeout(() => {
-      image.src = showingOriginal ? item.original : item.views[index];
-      image.alt = showingOriginal ? "Оригинальная вещь № " + item.id : "Обновлённая вещь № " + item.id;
-      image.classList.remove("is-changing");
-    }, 140);
-    toggle.textContent = showingOriginal ? "Показать новую версию" : "Показать оригинал";
-    toggle.setAttribute("aria-pressed", String(showingOriginal));
-    controls.classList.toggle("is-muted", showingOriginal);
-    count.textContent = showingOriginal ? "ОРИГИНАЛ" : String(index + 1).padStart(2,"0") + " / " + String(item.views.length).padStart(2,"0");
-  });
+
 
   let touchStartX = 0;
   visual.addEventListener("touchstart", event => { touchStartX = event.changedTouches[0].clientX; }, { passive: true });
   visual.addEventListener("touchend", event => {
-    if (showingOriginal || item.views.length < 2) return;
+    if (item.views.length < 2) return;
     const delta = event.changedTouches[0].clientX - touchStartX;
     if (Math.abs(delta) < 35) return;
     index = (index + (delta < 0 ? 1 : -1) + item.views.length) % item.views.length;
@@ -238,7 +221,7 @@ function makeMerchCard(item) {
     [...controls.children].forEach((node, n) => node.classList.toggle("is-active", n === index));
   }, { passive: true });
 
-  info.append(textBlock, toggle);
+  info.append(textBlock);
   card.append(visual, info);
   return card;
 }
